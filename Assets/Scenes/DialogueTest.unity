@@ -488,7 +488,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC544\uB098"
+  m_Text: "\uC544\uB098 \uC544\uB9C8\uB9AC"
 --- !u!222 &831369900
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -566,7 +566,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "\uC624\uBC84\uC6CC\uCE58 \uD790\uB7EC"
+  m_Text: "\uC635\uCE58 \uD790\uB7EC \uC544\uB098 \uC544\uB9C8\uB9AC.\n\uD604\uC0C1\uAE08
+    \uC0AC\uB0E5\uAFBC."
 --- !u!222 &899107956
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -836,6 +837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912497505}
   - component: {fileID: 1912497504}
+  - component: {fileID: 1912497506}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -856,10 +858,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData:
-    name: "\uC544\uB098"
-    dialogue: "\uC624\uBC84\uC6CC\uCE58 \uD790\uB7EC"
-  text_name: {fileID: 831369899}
+    name: "\uC544\uB098 \uC544\uB9C8\uB9AC"
+    dialogue: "\uC635\uCE58 \uD790\uB7EC \uC544\uB098 \uC544\uB9C8\uB9AC.\n\uD604\uC0C1\uAE08
+      \uC0AC\uB0E5\uAFBC."
   text_dialogue: {fileID: 899107955}
+  text_name: {fileID: 831369899}
+  delay: 1
+  interval: 0.1
 --- !u!4 &1912497505
 Transform:
   m_ObjectHideFlags: 0
@@ -874,3 +879,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1912497506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912497503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e591e30de061a4040be04588502d0688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
