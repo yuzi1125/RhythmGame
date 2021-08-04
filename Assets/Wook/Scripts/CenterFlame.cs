@@ -13,10 +13,10 @@ public class CenterFlame : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if(collision.CompareTag("Note")&& !musicStart)
-        //{
-        //    audiosource.Play();
-        //    musicStart = true;
-        //}
+        if (collision.CompareTag("Note") && !musicStart)
+        {
+            //audiosource.Play();
+            musicStart = true;
+        }
     }
 }

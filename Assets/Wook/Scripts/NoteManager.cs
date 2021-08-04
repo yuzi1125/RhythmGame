@@ -9,11 +9,14 @@ public class NoteManager : MonoBehaviour
 
     [SerializeField] Transform[] NoteApeear;
     [SerializeField] GameObject goNote = null;
+    bool GameStart = false;
 
     TimingManager timeingManager;
+    EffectManager effectManager;
     void Start()
     {
         timeingManager = GetComponent<TimingManager>();
+        effectManager = FindObjectOfType<EffectManager>();
     }
 
     void Update()
@@ -22,7 +25,14 @@ public class NoteManager : MonoBehaviour
         currentTime += Time.deltaTime;
         if(currentTime>= 60d / bpm)
         {
+            
             int dir = Random.Range(0, 3);
+            if(!GameStart)
+            {
+                GameStart = true;
+                dir = (int)NoteDir.left;
+            }
+
             GameObject note = Instantiate(goNote, NoteApeear[dir].position, Quaternion.identity);//Random.Range(0, 3)
             note.GetComponent<Note>().SetDir(dir);
             note.transform.SetParent(this.transform);
@@ -34,6 +44,8 @@ public class NoteManager : MonoBehaviour
     {
         if (collision.tag == "Note")
         {
+            if(collision.GetComponent<Note>().GetNoteFlag())
+                effectManager.JudgementEffect(3);
             Destroy(collision.gameObject);
             timeingManager.NoteList.Remove(collision.gameObject);
         }
