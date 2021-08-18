@@ -15,7 +15,7 @@ public class CenterFlame : MonoBehaviour
     {
         if (collision.CompareTag("Note") && !musicStart)
         {
-            //audiosource.Play();
+            audiosource.Play();
             musicStart = true;
         }
     }

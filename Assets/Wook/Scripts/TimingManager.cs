@@ -11,11 +11,11 @@ public class TimingManager : MonoBehaviour
     Vector2[] timingBox = null;
 
     EffectManager effectManager;
-
+    ScoreManager scoreManager;
     private void Start()
     {
         effectManager = FindObjectOfType<EffectManager>();
-
+        scoreManager = FindObjectOfType<ScoreManager>();
         //타이밍 박스 설정
         timingBox = new Vector2[timingRect.Length];
         for (int i = 0; i < timingRect.Length; i++)
@@ -40,10 +40,14 @@ public class TimingManager : MonoBehaviour
                     //노트 제거
                     NoteList[i].GetComponent<Note>().HideNote();
                     NoteList.RemoveAt(i);
+
                     //이펙트
                     if (x < timingBox.Length -1)
                         effectManager.NoteHitEffect();                   
                     effectManager.JudgementEffect(x);
+
+                    //점수 증가
+                    scoreManager.IncreaseScore(x);
                     return;
                 }
             }
