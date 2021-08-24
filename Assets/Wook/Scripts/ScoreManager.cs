@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
 
     public void IncreaseScore(int _JudgementState)
     {
-        int _increaseScore = increaseScore;
+         int _increaseScore = increaseScore;
 
         //가중치 계산
         currentScore += (int)(_increaseScore * weight[_JudgementState]);

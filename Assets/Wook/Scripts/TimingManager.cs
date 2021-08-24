@@ -10,6 +10,9 @@ public class TimingManager : MonoBehaviour
     [SerializeField] RectTransform[] timingRect = null;
     Vector2[] timingBox = null;
 
+    [SerializeField] UnityEngine.UI.Image PerfectImage;
+    [SerializeField] Sprite failsprite;
+
     EffectManager effectManager;
     ScoreManager scoreManager;
     private void Start()
@@ -37,6 +40,9 @@ public class TimingManager : MonoBehaviour
                 if (timingBox[x].x <= notePosX && notePosX <= timingBox[x].y &&
                     timingBox[x].x <= notePosY && notePosY <= timingBox[x].y)
                 {
+                    //perfect이미지 변경
+                    PerfectImage.sprite = NoteList[i].GetComponent<UnityEngine.UI.Image>().sprite;
+
                     //노트 제거
                     NoteList[i].GetComponent<Note>().HideNote();
                     NoteList.RemoveAt(i);
@@ -48,10 +54,37 @@ public class TimingManager : MonoBehaviour
 
                     //점수 증가
                     scoreManager.IncreaseScore(x);
+
+                    //로그 출력
+                    string Log;
+                    switch (x)
+                    {
+                        case 0:
+                            Log = "Perfect";
+                            break;
+                        case 1:
+                            Log = "Good";
+                            break;
+                        case 2:
+                            Log = "Bad";
+                            break;
+                        case 3:
+                            Log = "miss";
+                            break;
+                        default:
+                            Log = "";
+                            break;
+                    }
+                    if (x == 0)
+                        Log = "Perfect";
+                    LogController.Instance.SetLog(Log);
                     return;
                 }
+                
             }
+            
         }
         effectManager.JudgementEffect(3);
+        PerfectImage.sprite = failsprite;
     }
 }

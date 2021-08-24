@@ -13,7 +13,7 @@ public class Note : MonoBehaviour
     [SerializeField] float Speed = 400;
     [SerializeField] NoteDir noteDir = NoteDir.right;
     [SerializeField] Vector3 Dir = Vector3.zero;
-
+    [SerializeField] Sprite[] Notesprite;
     UnityEngine.UI.Image noteImage;
     private void Start()
     {
@@ -37,15 +37,19 @@ public class Note : MonoBehaviour
         switch (noteDir)
         {
             case NoteDir.right:
+                noteImage.sprite = Notesprite[(int)NoteDir.right];
                 Dir = Vector3.left;
                 break;
             case NoteDir.left:
+                noteImage.sprite = Notesprite[(int)NoteDir.left];
                 Dir = Vector3.right;
                 break;
             case NoteDir.Up:
+                noteImage.sprite = Notesprite[(int)NoteDir.Up];
                 Dir = Vector3.down;
                 break;
             case NoteDir.Down:
+                noteImage.sprite = Notesprite[(int)NoteDir.Down];
                 Dir = Vector3.up;
                 break;
         }
