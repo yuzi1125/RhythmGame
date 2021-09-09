@@ -1,0 +1,9 @@
+{
+    "name": "aa1",
+    "sentences": [
+        "aa1 첫번째 대사",
+        "aa2 두번째 대사"
+    ],
+    "nextAction": 1,
+    "sprites": []
+}

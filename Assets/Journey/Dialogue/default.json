@@ -1,0 +1,20 @@
+{
+    "name": "default",
+    "sentences": [
+        "default 첫번째 대사",
+        "default 두번째 대사",
+        "default 세번째 대사"
+    ],
+    "nextAction": 0,
+    "sprites": [
+        {
+            "instanceID": 15450
+        },
+        {
+            "instanceID": 15454
+        },
+        {
+            "instanceID": 15458
+        }
+    ]
+}

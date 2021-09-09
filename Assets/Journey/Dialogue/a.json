@@ -1,0 +1,19 @@
+{
+    "name": "a",
+    "sentences": [
+        "a 첫번째  대사",
+        "a 두번째 대사"
+    ],
+    "nextAction": 0,
+    "sprites": [
+        {
+            "instanceID": 15462
+        },
+        {
+            "instanceID": 15466
+        },
+        {
+            "instanceID": 15470
+        }
+    ]
+}
