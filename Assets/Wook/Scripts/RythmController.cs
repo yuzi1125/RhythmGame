@@ -13,9 +13,27 @@ public class RythmController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            timingManager.CheckTiming();
+            timingManager.CheckTiming((int)dir.Right);
         }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            timingManager.CheckTiming((int)dir.Left);
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            timingManager.CheckTiming((int)dir.Up);
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            timingManager.CheckTiming((int)dir.Down);
+        }
+
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    timingManager.CheckTiming();
+        //}
     }
 }

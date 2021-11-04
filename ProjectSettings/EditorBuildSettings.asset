@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Wook/Scene/PublishMain.unity
+    guid: 6ad7c6f0e2a6e944c8af3d2d9ec91b36
+  - enabled: 1
+    path: Assets/Wook/Scene/Rhythm.unity
+    guid: 1a0a1e113883fb14fabfc93f3010458e
+  - enabled: 1
+    path: Assets/Wook/Scene/End.unity
+    guid: c5dedce27ce5c5a469f07368df535a3e
   m_configObjects: {}

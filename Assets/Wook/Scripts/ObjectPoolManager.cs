@@ -19,7 +19,7 @@ public class ObjectPoolManager : MonoBehaviour
     public ObjectPool[] objectPool;
 
     public static ObjectPoolManager Instance { get { return instance; } }
-
+    public Transform Set;
     private void Awake()
     {
         if (null == instance)
@@ -57,7 +57,9 @@ public class ObjectPoolManager : MonoBehaviour
                     var findobject = objects.Find(obj => !obj.activeSelf);
                     if (null == findobject)
                     {//모두 사용중이라면 생성
-                        objects.Add(Instantiate(objectPool[(int)_object].Object_Prefab, transform));
+                        GameObject node = Instantiate(objectPool[(int)_object].Object_Prefab, transform);
+                        Set.transform.parent = node.transform;
+                        objects.Add(node);
                         findobject = objects[objects.Count - 1];
                         findobject.SetActive(false);
                     }

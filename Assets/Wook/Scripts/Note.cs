@@ -31,6 +31,12 @@ public class Note : MonoBehaviour
     {
         Move();
     }
+
+    public int GetDir()
+    {
+        return (int)noteDir;
+    }
+
     public void SetDir(int dir)
     {
         noteDir = (NoteDir)dir;

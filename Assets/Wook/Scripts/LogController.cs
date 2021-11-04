@@ -20,7 +20,8 @@ public class LogController : MonoBehaviour
     }
     public void SetLog(string _text)
     {
-        StreamWriter sw = File.AppendText("Log.txt");
+        string str = "Log" + GameManager.Instance.StartCount + ".txt";
+        StreamWriter sw = File.AppendText(str);
         sw.WriteLine(_text);    //저장될 string
         sw.Close();
     }

@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         currentScore = 0;
+        GameManager.Instance.Score = 0;
         txtScore.text = "0";
     }
 
@@ -24,8 +25,8 @@ public class ScoreManager : MonoBehaviour
          int _increaseScore = increaseScore;
 
         //가중치 계산
-        currentScore += (int)(_increaseScore * weight[_JudgementState]);
-        txtScore.text = string.Format("{0:#,##0}", currentScore);
+        GameManager.Instance.Score += (int)(_increaseScore * weight[_JudgementState]);
+        txtScore.text = string.Format("{0:#,##0}", GameManager.Instance.Score);
 
         animator.SetTrigger("ScoreUp");
 

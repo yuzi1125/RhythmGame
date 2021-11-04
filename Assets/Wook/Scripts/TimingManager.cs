@@ -1,6 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+enum dir
+{
+    Right = 0,
+    Left,
+    Up,
+    Down,
+}
 
 public class TimingManager : MonoBehaviour
 {
@@ -28,7 +35,7 @@ public class TimingManager : MonoBehaviour
         }
     }
 
-    public void CheckTiming()
+    public void CheckTiming(int dir)
     {
         for (int i = 0; i < NoteList.Count; i++)
         {
@@ -40,9 +47,18 @@ public class TimingManager : MonoBehaviour
                 if (timingBox[x].x <= notePosX && notePosX <= timingBox[x].y &&
                     timingBox[x].x <= notePosY && notePosY <= timingBox[x].y)
                 {
+                    bool Correct = true;
+                    int tmp = x;
+                    if (NoteList[i].GetComponent<Note>().GetDir() != dir)
+                    {
+                        Correct = false;
+                        x = 3;
+                     }
                     //perfect이미지 변경
-                    PerfectImage.sprite = NoteList[i].GetComponent<UnityEngine.UI.Image>().sprite;
-
+                    if(Correct)
+                        PerfectImage.sprite = NoteList[i].GetComponent<UnityEngine.UI.Image>().sprite;
+                    else
+                        PerfectImage.sprite = failsprite;
                     //노트 제거
                     NoteList[i].GetComponent<Note>().HideNote();
                     NoteList.RemoveAt(i);
@@ -53,7 +69,8 @@ public class TimingManager : MonoBehaviour
                     effectManager.JudgementEffect(x);
 
                     //점수 증가
-                    scoreManager.IncreaseScore(x);
+                    if(Correct)
+                        scoreManager.IncreaseScore(x);
 
                     //로그 출력
                     string Log;
@@ -78,6 +95,8 @@ public class TimingManager : MonoBehaviour
                     if (x == 0)
                         Log = "Perfect";
                     LogController.Instance.SetLog(Log);
+                    if (!Correct)
+                        x = tmp;
                     return;
                 }
                 
