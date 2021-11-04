@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Wook/Scene/PublishMain.unity
     guid: 6ad7c6f0e2a6e944c8af3d2d9ec91b36
   - enabled: 1
+    path: Assets/Journey/Scenes/DialogScene.unity
+    guid: e496447c6c4a71441b68e3be7e15bd05
+  - enabled: 1
     path: Assets/Wook/Scene/Rhythm.unity
     guid: 1a0a1e113883fb14fabfc93f3010458e
   - enabled: 1
